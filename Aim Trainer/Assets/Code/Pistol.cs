@@ -9,6 +9,7 @@ public class Pistol : MonoBehaviour
 	public Transform barrel;
 	public float bulletSpeed = 150;
 	public GameObject rubberduck;
+	public bool rubberDuck;
 	public float firemode;
     // Start is called before the first frame update
     void Start()
@@ -16,13 +17,23 @@ public class Pistol : MonoBehaviour
         pistol(0);
 		firemode = 0;
     }
-	void Update()
+	void FixedUpdate()
 	{
-		if(Input.GetKeyDown(KeyCode.T))
+		if(rubberDuck == true)
 		{
-			pistol(3);
+		pistol(3);
+		}
+
+		if(Input.GetKeyDown(KeyCode.T) && rubberDuck == false)
+		{
+			rubberDuck = true;
 			firemode = 3;
 		}
+		if(Input.GetKeyDown(KeyCode.T) && rubberDuck == true)
+		{
+		rubberDuck = false;
+		}
+
 	}
     // Update is called once per frame
     void pistol(int x)
@@ -77,6 +88,11 @@ public class Pistol : MonoBehaviour
 				//bullet.GetComponent<Rigidbody>().velocity = transform.up * bulletSpeed;
 				
 			}
+		}
+		if (Input.GetKeyDown(KeyCode.X) && x == 3)
+		{
+			x = 0;
+			firemode = 0;
 		}
     }
 	
