@@ -11,89 +11,71 @@ public class Pistol : MonoBehaviour
 	public GameObject rubberduck;
 	public bool rubberDuck;
 	public float firemode;
-    // Start is called before the first frame update
-    void Start()
-    {
-        pistol(0);
-		firemode = 0;
-    }
-	void FixedUpdate()
+
+	// Start is called before the first frame update
+	void Start()
 	{
-		if(rubberDuck == true)
-		{
-		pistol(3);
-		}
-
-		if(Input.GetKeyDown(KeyCode.T) && rubberDuck == false)
-		{
-			rubberDuck = true;
-			firemode = 3;
-		}
-		if(Input.GetKeyDown(KeyCode.T) && rubberDuck == true)
-		{
-		rubberDuck = false;
-		}
-
+		pistol();
+		firemode = 0;
 	}
-    // Update is called once per frame
-    void pistol(int x)
-    {
-		if (x == 0)
+
+	// Update is called once per frame
+	void Update()
+	{
+		pistol();
+	}
+
+	void pistol()
+	{
+		if (Input.GetKeyDown(KeyCode.Mouse0))
 		{
-			if(Input.GetKeyDown(KeyCode.Mouse0))
+			if (firemode == 0)
 			{
 				Instantiate(bullet, barrel.transform.position, barrel.transform.rotation);
-				//bullet.GetComponent<Rigidbody>().velocity = transform.up * bulletSpeed;
+			}
+			else if (firemode == 1)
+			{
+				Instantiate(bullet, barrel.transform.position, barrel.transform.rotation);
+				Instantiate(bullet, barrel.transform.position, barrel.transform.rotation);
+				Instantiate(bullet, barrel.transform.position, barrel.transform.rotation);
+			}
+			else if (firemode == 2)
+			{
+				if (Input.GetKeyDown(KeyCode.P))
+				{
+					Application.Quit();
+				}
+			}
+			else if (firemode == 3)
+			{
+				Instantiate(rubberduck, barrel.transform.position, barrel.transform.rotation);
 			}
 		}
+
 		if (Input.GetKeyDown(KeyCode.X))
 		{
-			x = 1;
-			firemode = 1;
-		}
-		if (x == 1)
-		{
-			if(Input.GetKeyDown(KeyCode.Mouse0))
+			if (firemode == 2)
 			{
-				//Burst Mode, fires three bullets
-				Instantiate(bullet, barrel.transform.position, barrel.transform.rotation);
-				//bullet.GetComponent<Rigidbody>().velocity = transform.up * bulletSpeed;
-				Instantiate(bullet, barrel.transform.position, barrel.transform.rotation);
-				Instantiate(bullet, barrel.transform.position, barrel.transform.rotation);
+				firemode = 0;
+			}
+			else
+			{
+				firemode++;
 			}
 		}
-		if (Input.GetKeyDown(KeyCode.X) && x == 1)
+
+		if (Input.GetKeyDown(KeyCode.T))
 		{
-			x = 2;
-			firemode = 2;
-		}
-		if (Input.GetKeyDown(KeyCode.X) && x == 2)
-		{
-			x = 0;
-		}
-			if (x == 2) 
+			if (rubberDuck)
 			{
-				
-					if (Input.GetKeyDown(KeyCode.P))
-					{
-						Application.Quit();
-					}
+				rubberDuck = false;
+				firemode = 0;
 			}
-		if (x == 3)
-		{
-			if(Input.GetKeyDown(KeyCode.Mouse0))
+			else
 			{
-				//Burst Mode, fires three bullets
-				Instantiate(rubberduck, barrel.transform.position, barrel.transform.rotation);
-				//bullet.GetComponent<Rigidbody>().velocity = transform.up * bulletSpeed;
-				
+				rubberDuck = true;
+				firemode = 3;
 			}
 		}
-		if (Input.GetKeyDown(KeyCode.X) && x == 3)
-		{
-			x = 0;
-			firemode = 0;
-		}
-    }
-	
+	}
 }
