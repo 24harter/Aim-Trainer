@@ -7,7 +7,9 @@ public class Pistol : MonoBehaviour
 
 	public GameObject bullet;
 	public Transform barrel;
-	public float bulletSpeed = 150;
+	public float timer;
+	public float delay = .01f;
+	public float bulletSpeed = 150f;
 	public GameObject rubberduck;
 	public bool rubberDuck;
 	public float firemode;
@@ -36,8 +38,17 @@ public class Pistol : MonoBehaviour
 			else if (firemode == 1)
 			{
 				Instantiate(bullet, barrel.transform.position, barrel.transform.rotation);
-				Instantiate(bullet, barrel.transform.position, barrel.transform.rotation);
-				Instantiate(bullet, barrel.transform.position, barrel.transform.rotation);
+				timer += Time.deltaTime;
+				if (timer > delay)
+				{
+					Instantiate(bullet, barrel.transform.position, barrel.transform.rotation);
+				}
+				timer += Time.deltaTime;
+				if (timer > delay)
+				{
+					Instantiate(bullet, barrel.transform.position, barrel.transform.rotation);
+				}
+				
 			}
 			else if (firemode == 2)
 			{
