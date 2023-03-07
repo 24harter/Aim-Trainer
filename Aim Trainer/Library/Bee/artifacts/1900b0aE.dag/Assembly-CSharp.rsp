@@ -355,6 +355,7 @@
 "Assets/Code/bullet.cs"
 "Assets/Code/MouseLook.cs"
 "Assets/Code/Pistol.cs"
+"Assets/Code/Spawns.cs"
 -langversion:9.0
 
 /deterministic
