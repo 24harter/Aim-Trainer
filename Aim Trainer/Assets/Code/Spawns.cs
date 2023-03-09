@@ -36,11 +36,43 @@ public class Spawns : MonoBehaviour
 	public static GameObject rr;
 	public GameObject spawner;
 	public GameObject target;
+	public transform position1;
+	public transform position2;
+	public transform position3;
+	public transform position4;
+	public transform position5;
+	public transform position6;
+	public transform position7;
+	public transform position8;
+	public transform position9;
+	public transform position10;
+	public transform position11;
+	public transform position12;
+	public transform position13;
+	public transform position14;
+	public transform position15;
+	public transform position16;
+	public transform position17;
+	public transform position18;
+	public transform position19;
+	public transform position20;
+	public transform position21;
+	public transform position22;
+	public transform position23;
+	public transform position24;
+	public transform position25;
+	public transform position26;
+	public transform position27;
+	public transform position28;
+	public transform position29;
+	public transform position30;
 
+	
     // Start is called before the first frame update
     void Start()
     {
-        Instantiate(target, spawns.Range(0, 29), spawner.transform.position, spawner.transform.rotation);
+        Random.Range(0, 29);
+		Instantiate(target, position, Quaternion.identity);
     }
 
     // Update is called once per frame
@@ -50,37 +82,37 @@ public class Spawns : MonoBehaviour
     }
 	public void spawns()
 	{
-		int[] spawn = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30};
+		GameObject[] spawn = {q, w, e, r, t, y, u, i, o, p, a, s, d, f, g, h, j, k, l, z, x, c, v, b, n, m, qq, ww, ee, rr};
 
-		spawn[0] = q;
-		spawn[1] = w;
-		spawn[2] = e;
-		spawn[3] = r;
-		spawn[4] = t;
-		spawn[5] = y;
-		spawn[6] = u;
-		spawn[7] = i;
-		spawn[8] = o;
-		spawn[9] = p;
-		spawn[10] = a;
-		spawn[11] = s;
-		spawn[12] = d;
-		spawn[13] = f;
-		spawn[14] = g;
-		spawn[15] = h;
-		spawn[16] = j;
-		spawn[17] = k;
-		spawn[18] = l;
-		spawn[19] = z;
-		spawn[20] = x;
-		spawn[21] = c;
-		spawn[22] = v;
-		spawn[23] = b;
-		spawn[24] = n;
-		spawn[25] = m;
-		spawn[26] = qq;
-		spawn[27] = ww;
-		spawn[28] = ee;
-		spawn[29] = rr;
+		spawn[q] = position1;
+		spawn[w] = position2;
+		spawn[e] = position3;
+		spawn[r] = position4;
+		spawn[t] = position5;
+		spawn[y] = position6;
+		spawn[u] = position7;
+		spawn[i] = position8;
+		spawn[o] = position9;
+		spawn[p] = position10;
+		spawn[a] = position11;
+		spawn[s] = position12;
+		spawn[d] = position13;
+		spawn[f] = position14;
+		spawn[g] = position15;
+		spawn[h] = position16;
+		spawn[j] = position17;
+		spawn[k] = position18;
+		spawn[l] = position19;
+		spawn[z] = position20;
+		spawn[x] = position21;
+		spawn[c] = position22;
+		spawn[v] = position23;
+		spawn[b] = position24;
+		spawn[n] = position25;
+		spawn[m] = position26;
+		spawn[qq] = position27;
+		spawn[ww] = position28;
+		spawn[ee] = position29;
+		spawn[rr] = position30;
 	}
 }
