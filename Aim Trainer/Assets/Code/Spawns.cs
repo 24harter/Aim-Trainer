@@ -4,8 +4,10 @@ using UnityEngine;
 
 public class Spawns : MonoBehaviour
 {
-    public GameObject[] spawnObjects;
-    public Transform[] positions;
+    public static GameObject bob;
+	public static Transform tim;
+    public GameObject[] spawnObjects = {bob,bob,bob,bob,bob,bob,bob,bob,bob,bob,bob,bob,bob,bob,bob,bob,bob,bob,bob,bob,bob,bob,bob,bob,bob,bob,bob,bob,bob,bob};
+    public Transform[] positions  = {tim,tim,tim,tim,tim,tim,tim,tim,tim,tim,tim,tim,tim,tim,tim,tim,tim,tim,tim,tim,tim,tim,tim,tim,tim,tim,tim,tim,tim,tim};
 
     public GameObject targetPrefab;
     public Transform targetParent;
@@ -13,6 +15,7 @@ public class Spawns : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+		tim = bob.transform;
         int randomIndex = Random.Range(0, spawnObjects.Length);
         GameObject spawnObject = spawnObjects[randomIndex];
         Transform position = positions[randomIndex];
@@ -48,5 +51,6 @@ public class Spawns : MonoBehaviour
 		spawnObjects[27] = GameObject.Find("Spawn28");
 		spawnObjects[28] = GameObject.Find("Spawn29");
 		spawnObjects[29] = GameObject.Find("Spawn30");
+		
     }
 }
